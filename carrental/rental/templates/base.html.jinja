@@ -14,6 +14,11 @@
         {% include "_nav.jinja" %}
     </header>
     <main>
+        <section>
+            {% block content %}
+
+            {% endblock content %}
+        </section>
         <section class="text-center mt-5">
             <div class="container w-50 d-flex align-items-center flex-column">
                 <h1 class="mb-4">CarRental - Wypożyczalnia samochodów</h1>
