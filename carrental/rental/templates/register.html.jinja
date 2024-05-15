@@ -2,5 +2,13 @@
 
 
 {% block content %}
-{{form}}
+{% if message %}
+<p>{{message}}</p>
+{%endif%}
+<form action="{% url 'register' %}" method="POST" novalidate>
+    {% csrf_token %}
+    {{form.as_p}}
+    {{form_address.as_p}}
+    <button type="submit">Zarejestruj</button>
+</form>
 {% endblock content %}
