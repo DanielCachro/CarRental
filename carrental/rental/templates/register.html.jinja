@@ -4,11 +4,12 @@
 {% block content %}
 {% if message %}
 <p>{{message}}</p>
-{%endif%}
+{% else %}
 <form action="{% url 'register' %}" method="POST" novalidate>
     {% csrf_token %}
-    {{form.as_p}}
+    {{form_user.as_p}}
     {{form_address.as_p}}
     <button type="submit">Zarejestruj</button>
 </form>
+{% endif %}
 {% endblock content %}
