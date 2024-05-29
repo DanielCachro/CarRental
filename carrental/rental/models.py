@@ -38,7 +38,7 @@ class Car(models.Model):
     engine_power = models.PositiveSmallIntegerField()
     color = models.CharField(max_length=20)
     equipment = models.ManyToManyField(Equipment)
-    gearbox_type = models.CharField(max_length=20, choices=ENGINE_TYPES)
+    gearbox_type = models.CharField(max_length=20, choices=GEARBOX_TYPES)
     available = models.BooleanField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     value = models.DecimalField(max_digits=10, decimal_places=2)
