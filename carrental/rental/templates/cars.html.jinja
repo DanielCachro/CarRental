@@ -1,3 +1,4 @@
+{% load filters %}
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -23,7 +24,6 @@
         <!-- {% for category in categories %}
         {{category}}
         {% endfor %} -->
-        {{cars2|safe}}
     </header>
     <main>
         <section class="cars-cards d-flex align-items-center flex-column mt-5">
@@ -35,115 +35,35 @@
                         <img src="../../static/img/Citroen_C3_Automat.png" class="card-img-top" alt="...">
                         <div class="card-body text-body-secondary">
                             <h5 class="card-title mb-3 text-body">{{car.brand}} {{car.model}}</h5>
-                            <p class="card-text mb-2">Typ silnika: <span class="float-end text-body">Benzyna</span></p>
-                            <p class="card-text mb-2">Skrzynia biegów: <span class="float-end text-body">Aut</span></p>
-                            <p class="card-text mb-2">Liczba miejsc: <span class="float-end text-body">5</span></p>
-                            <p class="card-text mb-2">Moc silnika: <span class="float-end text-body">110 KM</span></p>
-                            <p class="card-text mb-2">Spalanie: <span class="float-end text-body">5.8l</span></p>
+                            <p class="card-text mb-2">Typ silnika: <span
+                                    class="float-end text-body">{{car.engine_type|capfirst}}</span></p>
+                            <p class="card-text mb-2">Skrzynia biegów: <span
+                                    class="float-end text-body">{{car.gearbox_type|slice:":3"|capfirst}}.</span></p>
+                            <p class="card-text mb-2">Liczba miejsc: <span
+                                    class="float-end text-body">{{car.seats_count}}</span></p>
+                            <p class="card-text mb-2">Moc silnika: <span
+                                    class="float-end text-body">{{car.engine_power}} KM</span></p>
+                            <p class="card-text mb-2">Spalanie: <span
+                                    class="float-end text-body">{{car.fuel_usage|replace_comma_with_dot}}l</span>
+                            </p>
                             <a href="/rental/car/1" class="btn btn-primary w-100 mt-3">Wynajmij samochód</a>
                         </div>
                     </div>
                 </div>
                 {% endfor %}
+            </div>
         </section>
-
-
-        <!-- <section class="cars-cards d-flex align-items-center flex-column mt-5">
-            <h1 class="mb-5">Nasza kolekcja samochodów</h1>
-            <div class="row row-cols-1 row-cols-md-3 g-4 w-50 justify-content-center">
-                <div class="col" style="width: 250px;">
-                    <div class="card p-2">
-                        <img src="../../static/img/Citroen_C3_Automat.png" class="card-img-top" alt="...">
-                        <div class="card-body text-body-secondary">
-                            <h5 class="card-title mb-3 text-body">Citroen C3 Aut.</h5>
-                            <p class="card-text mb-2">Typ silnika: <span class="float-end text-body">Benzyna</span></p>
-                            <p class="card-text mb-2">Skrzynia biegów: <span class="float-end text-body">Aut</span></p>
-                            <p class="card-text mb-2">Liczba miejsc: <span class="float-end text-body">5</span></p>
-                            <p class="card-text mb-2">Moc silnika: <span class="float-end text-body">110 KM</span></p>
-                            <p class="card-text mb-2">Spalanie: <span class="float-end text-body">5.8l</span></p>
-                            <a href="/rental/car/1" class="btn btn-primary w-100 mt-3">Wynajmij samochód</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col" style="width: 250px;">
-                    <div class="card p-2">
-                        <img src="../../static/img/Citroen_C4_Automat.png" class="card-img-top" alt="...">
-                        <div class="card-body text-body-secondary">
-                            <h5 class="card-title mb-3 text-body">Citroen C4 Aut.</h5>
-                            <p class="card-text mb-2">Typ silnika: <span class="float-end text-body">Benzyna</span></p>
-                            <p class="card-text mb-2">Skrzynia biegów: <span class="float-end text-body">Aut.</span></p>
-                            <p class="card-text mb-2">Liczba miejsc: <span class="float-end text-body">5</span></p>
-                            <p class="card-text mb-2">Moc silnika: <span class="float-end text-body">110 KM</span></p>
-                            <p class="card-text mb-2">Spalanie: <span class="float-end text-body">5.8l</span></p>
-                            <a href="/rental/car/1" class="btn btn-primary w-100 mt-3">Wynajmij samochód</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col" style="width: 250px;">
-                    <div class="card p-2">
-                        <img src="../../static/img/Hyundai_i30.png" class="card-img-top" alt="...">
-                        <div class="card-body text-body-secondary">
-                            <h5 class="card-title mb-3 text-body">Hyundai i30</h5>
-                            <p class="card-text mb-2">Typ silnika: <span class="float-end text-body">Benzyna</span></p>
-                            <p class="card-text mb-2">Skrzynia biegów: <span class="float-end text-body">Man.</span></p>
-                            <p class="card-text mb-2">Liczba miejsc: <span class="float-end text-body">5</span></p>
-                            <p class="card-text mb-2">Moc silnika: <span class="float-end text-body">110 KM</span></p>
-                            <p class="card-text mb-2">Spalanie: <span class="float-end text-body">5.8l</span></p>
-                            <a href="/rental/car/1" class="btn btn-primary w-100 mt-3">Wynajmij samochód</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col" style="width: 250px;">
-                    <div class="card p-2">
-                        <img src="../../static/img/Hyundai_i30_Kombi.png" class="card-img-top" alt="...">
-                        <div class="card-body text-body-secondary">
-                            <h5 class="card-title mb-3 text-body">Hyundai i30 Kombi</h5>
-                            <p class="card-text mb-2">Typ silnika: <span class="float-end text-body">Benzyna</span></p>
-                            <p class="card-text mb-2">Skrzynia biegów: <span class="float-end text-body">Man.</span></p>
-                            <p class="card-text mb-2">Liczba miejsc: <span class="float-end text-body">5</span></p>
-                            <p class="card-text mb-2">Moc silnika: <span class="float-end text-body">110 KM</span></p>
-                            <p class="card-text mb-2">Spalanie: <span class="float-end text-body">5.8l</span></p>
-                            <a href="/rental/car/1" class="btn btn-primary w-100 mt-3">Wynajmij samochód</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col" style="width: 250px;">
-                    <div class="card p-2">
-                        <img src="../../static/img/Kia_Ceed.png" class="card-img-top" alt="...">
-                        <div class="card-body text-body-secondary">
-                            <h5 class="card-title mb-3 text-body">Kia Ceed</h5>
-                            <p class="card-text mb-2">Typ silnika: <span class="float-end text-body">Benzyna</span></p>
-                            <p class="card-text mb-2">Skrzynia biegów: <span class="float-end text-body">Man.</span></p>
-                            <p class="card-text mb-2">Liczba miejsc: <span class="float-end text-body">5</span></p>
-                            <p class="card-text mb-2">Moc silnika: <span class="float-end text-body">110 KM</span></p>
-                            <p class="card-text mb-2">Spalanie: <span class="float-end text-body">5.8l</span></p>
-                            <a href="/rental/car/1" class="btn btn-primary w-100 mt-3">Wynajmij samochód</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col" style="width: 250px;">
-                    <div class="card p-2">
-                        <img src="../../static/img/Toyota_Yaris_Automat.png" class="card-img-top" alt="...">
-                        <div class="card-body text-body-secondary">
-                            <h5 class="card-title mb-3 text-body">Toyota Yaris Aut.</h5>
-                            <p class="card-text mb-2">Typ silnika: <span class="float-end text-body">Benzyna</span>
-                            </p>
-                            <p class="card-text mb-2">Skrzynia biegów: <span class="float-end text-body">Aut.</span>
-                            </p>
-                            <p class="card-text mb-2">Liczba miejsc: <span class="float-end text-body">5</span></p>
-                            <p class="card-text mb-2">Moc silnika: <span class="float-end text-body">110 KM</span>
-                            </p>
-                            <p class="card-text mb-2">Spalanie: <span class="float-end text-body">5.8l</span></p>
-                            <a href="/rental/car/1" class="btn btn-primary w-100 mt-3">Wynajmij samochód</a>
-                        </div>
-                    </div>
-                </div>
-        </section> -->
+        <section class="cards-table d-flex flex-column align-items-center">
+            <h2 class="mt-5">Dane naszej floty</h2>
+            <div style="width: 80vw;">{{cars2|safe}}</div>
+        </section>
     </main>
     {% include "_footer.jinja" %}
     <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
     {%block script %}
-    <script>let table = new DataTable('#cars2');
+    <script>let table = new DataTable('#cars2', {
+            scrollX: true
+        });
     </script>
     {%endblock script%}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

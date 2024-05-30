@@ -12,6 +12,7 @@ def cars(request):
     cars2 = pd.DataFrame.from_records(cars.values())
     return render(request, 'cars.html.jinja', {'cars': cars, 'categories': categories, 'cars2': cars2.to_html(classes='table table-striped table-bordereds', index=False, table_id='cars2')})
 
+
 def car(request, car_id):
     return render(request, 'car.html.jinja')
 

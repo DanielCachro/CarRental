@@ -24,18 +24,3 @@ def register(request):
         form_address = forms.UserAddressFormSet()
         return render(request, 'register.html.jinja', {'form_user': form_user, 'form_address': form_address})
     
-
-
-
-
-# def register(request):
-#     if request.method == 'POST':
-#         user_form = forms.RegistrationForm(request.POST)
-#         address_formset = forms.UserAddressFormSet(request.POST)
-#         if user_form.is_valid() and address_formset.is_valid():
-#             # Zapisz użytkownika
-#             user = user_form.save()
-#             # Zapisz adresy użytkownika
-#             addresses = address_formset.save(commit=False)
-#             for address in addresses:
-#                 address.user = user

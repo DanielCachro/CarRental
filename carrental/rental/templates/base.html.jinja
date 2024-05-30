@@ -1,3 +1,4 @@
+{% load filters %}
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -49,79 +50,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col" style="width: 250px;">
-                    <div class="card p-2">
-                        <img src="../static/img/Citroen_C4_Automat.png" class="card-img-top" alt="...">
-                        <div class="card-body text-body-secondary">
-                            <h5 class="card-title mb-3 text-body">Citroen C4 Aut.</h5>
-                            <p class="card-text mb-2">Typ silnika: <span class="float-end text-body">Benzyna</span></p>
-                            <p class="card-text mb-2">Skrzynia biegów: <span class="float-end text-body">Aut.</span></p>
-                            <p class="card-text mb-2">Liczba miejsc: <span class="float-end text-body">5</span></p>
-                            <p class="card-text mb-2">Moc silnika: <span class="float-end text-body">110 KM</span></p>
-                            <p class="card-text mb-2">Spalanie: <span class="float-end text-body">5.8l</span></p>
-                            <a href="/rental/car/1" class="btn btn-primary w-100 mt-3">Wynajmij samochód</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col" style="width: 250px;">
-                    <div class="card p-2">
-                        <img src="../static/img/Hyundai_i30.png" class="card-img-top" alt="...">
-                        <div class="card-body text-body-secondary">
-                            <h5 class="card-title mb-3 text-body">Hyundai i30</h5>
-                            <p class="card-text mb-2">Typ silnika: <span class="float-end text-body">Benzyna</span></p>
-                            <p class="card-text mb-2">Skrzynia biegów: <span class="float-end text-body">Man.</span></p>
-                            <p class="card-text mb-2">Liczba miejsc: <span class="float-end text-body">5</span></p>
-                            <p class="card-text mb-2">Moc silnika: <span class="float-end text-body">110 KM</span></p>
-                            <p class="card-text mb-2">Spalanie: <span class="float-end text-body">5.8l</span></p>
-                            <a href="/rental/car/1" class="btn btn-primary w-100 mt-3">Wynajmij samochód</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col" style="width: 250px;">
-                    <div class="card p-2">
-                        <img src="../static/img/Hyundai_i30_Kombi.png" class="card-img-top" alt="...">
-                        <div class="card-body text-body-secondary">
-                            <h5 class="card-title mb-3 text-body">Hyundai i30 Kombi</h5>
-                            <p class="card-text mb-2">Typ silnika: <span class="float-end text-body">Benzyna</span></p>
-                            <p class="card-text mb-2">Skrzynia biegów: <span class="float-end text-body">Man.</span></p>
-                            <p class="card-text mb-2">Liczba miejsc: <span class="float-end text-body">5</span></p>
-                            <p class="card-text mb-2">Moc silnika: <span class="float-end text-body">110 KM</span></p>
-                            <p class="card-text mb-2">Spalanie: <span class="float-end text-body">5.8l</span></p>
-                            <a href="/rental/car/1" class="btn btn-primary w-100 mt-3">Wynajmij samochód</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col" style="width: 250px;">
-                    <div class="card p-2">
-                        <img src="../static/img/Kia_Ceed.png" class="card-img-top" alt="...">
-                        <div class="card-body text-body-secondary">
-                            <h5 class="card-title mb-3 text-body">Kia Ceed</h5>
-                            <p class="card-text mb-2">Typ silnika: <span class="float-end text-body">Benzyna</span></p>
-                            <p class="card-text mb-2">Skrzynia biegów: <span class="float-end text-body">Man.</span></p>
-                            <p class="card-text mb-2">Liczba miejsc: <span class="float-end text-body">5</span></p>
-                            <p class="card-text mb-2">Moc silnika: <span class="float-end text-body">110 KM</span></p>
-                            <p class="card-text mb-2">Spalanie: <span class="float-end text-body">5.8l</span></p>
-                            <a href="/rental/car/1" class="btn btn-primary w-100 mt-3">Wynajmij samochód</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col" style="width: 250px;">
-                    <div class="card p-2">
-                        <img src="../static/img/Toyota_Yaris_Automat.png" class="card-img-top" alt="...">
-                        <div class="card-body text-body-secondary">
-                            <h5 class="card-title mb-3 text-body">Toyota Yaris Aut.</h5>
-                            <p class="card-text mb-2">Typ silnika: <span class="float-end text-body">Benzyna</span>
-                            </p>
-                            <p class="card-text mb-2">Skrzynia biegów: <span class="float-end text-body">Aut.</span>
-                            </p>
-                            <p class="card-text mb-2">Liczba miejsc: <span class="float-end text-body">5</span></p>
-                            <p class="card-text mb-2">Moc silnika: <span class="float-end text-body">110 KM</span>
-                            </p>
-                            <p class="card-text mb-2">Spalanie: <span class="float-end text-body">5.8l</span></p>
-                            <a href="/rental/car/1" class="btn btn-primary w-100 mt-3">Wynajmij samochód</a>
-                        </div>
-                    </div>
-                </div>
+                {{cars}}
+            </div>
         </section>
     </main>
     {% include "_footer.jinja" %}
