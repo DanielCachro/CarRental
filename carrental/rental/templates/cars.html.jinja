@@ -46,7 +46,9 @@
                             <p class="card-text mb-2">Spalanie: <span
                                     class="float-end text-body">{{car.fuel_usage|replace_comma_with_dot}}l</span>
                             </p>
-                            <a href="/rental/car/1" class="btn btn-primary w-100 mt-3">Wynajmij samochód</a>
+                            <a href="/rental/car/1" class="btn btn-primary w-100 mt-3">Szczegóły</a>
+                            <a href="{% url 'rent' car_id=car.id %}" class="btn btn-primary w-100 mt-3">Wynajmij
+                                samochód</a>
                         </div>
                     </div>
                 </div>
@@ -55,7 +57,7 @@
         </section>
         <section class="cards-table d-flex flex-column align-items-center">
             <h2 class="mt-5">Dane naszej floty</h2>
-            <div style="width: 80vw;">{{cars2|safe}}</div>
+            <div style="width: 65vw;">{{cars2|safe}}</div>
         </section>
     </main>
     {% include "_footer.jinja" %}
